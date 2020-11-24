@@ -1,0 +1,19 @@
+{
+  "name": "JSGrind",
+  "version": "1.0.0",
+  "description": "Finding small solutions to both big and small problems using javascript.",
+  "main": "index.js",
+  "author": "Marylene",
+  "scripts": {
+    "eslint-f": "npx eslint . --fix"
+  },
+  "eslint-f": "npx eslint . --fix",
+  "stylelint-f": "npx stylelint **/*.{css,scss} --fix",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "babel-eslint": "10.1.x"
+  }
+}
