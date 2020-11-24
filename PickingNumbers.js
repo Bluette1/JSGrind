@@ -1,4 +1,4 @@
-/* https://www.hackerrank.com/challenges/picking - numbers/problem
+/* https://www.hackerrank.com/challenges/picking-numbers/problem
  *
  * Use bin/bucket sort to sort and count how many there are of each element
  * in the array. Then loop through the frequencies array to find
