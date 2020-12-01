@@ -4,7 +4,7 @@
  * in the array. Then loop through the frequencies array to find
  * the largest sum of any two adjacent frequencies.
  */
-function pickingNumbers(arr) {
+const pickingNumbers = (arr) => {
   const LEN = arr.length;
   const counts = [].fill.call({ length: LEN }, 0);
   let result = -1;
