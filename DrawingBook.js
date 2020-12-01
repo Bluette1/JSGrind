@@ -7,7 +7,7 @@
  * We play around with the variable inputs and study the effect on the output,
  * and eventually come up with a working formula.
  */
-const pageCount=(n, p) => {
+const pageCount = (n, p) => {
   // if they start reading from front page
   // let the number of pages turned be
   const forwardPages = Math.floor(p / 2);
@@ -23,6 +23,6 @@ const pageCount=(n, p) => {
   }
 
   return backwardPages;
-}
+};
 
 pageCount(4, 2);

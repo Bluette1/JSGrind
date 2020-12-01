@@ -1,6 +1,6 @@
 /**
  * https://www.hackerrank.com/challenges/find-digits/problem
- * @param {Number} num 
+ * @param {Number} num
  */
 
 const findDigits = (num) => {

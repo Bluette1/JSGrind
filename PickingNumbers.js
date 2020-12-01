@@ -18,6 +18,6 @@ const pickingNumbers = (arr) => {
     result = Math.max(result, counts[i] + counts[i - 1]);
   }
   return result;
-}
+};
 
 pickingNumbers([4, 6, 5, 3, 3, 1]);
