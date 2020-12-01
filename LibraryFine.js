@@ -1,5 +1,9 @@
 /**
  * https://www.hackerrank.com/challenges/library-fine/problem
+ * 
+ * This question is about branching(if-else) statements,
+ * and applying a bit of logic, and checking all the possible cases.
+ * 
  * @param {Number} d1
  * @param {Number} m1
  * @param {Number} y1
