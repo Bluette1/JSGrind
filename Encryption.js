@@ -1,7 +1,7 @@
 /**
  * https://www.hackerrank.com/challenges/encryption/problem
- * 
- * @param {String} str 
+ *
+ * @param {String} str
  */
 const encrypt = (str) => {
   const { length } = str;
