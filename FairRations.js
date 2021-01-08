@@ -24,7 +24,12 @@ const findMinLoaves = (arr) => {
   return minLoavesRes;
 };
 
-// Complete the fairRations function below.
+/**
+ * https://www.hackerrank.com/challenges/fair-rations/problem
+ *
+ * @param {array} arr - array of numbers
+ * @returns {number} - minimum number of loaves required
+ */
 function fairRations(arr) {
   const { length } = arr;
   const total = (sum, num) => num + sum;
