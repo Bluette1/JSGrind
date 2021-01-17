@@ -10,7 +10,28 @@ const sideArea = (H, W, board) => {
     for (let row = 0; row < W; row += 1) {
       area += 2 * board[0][row];
     }
-    return area;
+    totalArea += area;
+
+    const firstRow = board[0];
+    [area] = firstRow;
+    for (let row = 1; row < W; row += 1) {
+      const exposedArea = board[0][row] - board[0][row - 1];
+      if (exposedArea > 0) {
+        area += exposedArea;
+      }
+    }
+    totalArea += area;
+
+    area = board[0][W - 1];
+
+    for (let row = W - 2; row >= 0; row -= 1) {
+      const exposedArea = board[0][row] - board[0][row + 1];
+      if (exposedArea > 0) {
+        area += exposedArea;
+      }
+    }
+    totalArea += area;
+    return totalArea;
   }
 
   if (W === 1) {
@@ -18,7 +39,28 @@ const sideArea = (H, W, board) => {
     for (let row = 0; row < H; row += 1) {
       area += 2 * board[row][0];
     }
-    return area;
+    totalArea += area;
+
+    const firstRow = board[0];
+    [area] = firstRow;
+    for (let row = 1; row < H; row += 1) {
+      const exposedArea = board[row][0] - board[row - 1][0];
+      if (exposedArea > 0) {
+        area += exposedArea;
+      }
+    }
+
+    totalArea += area;
+    const lastRow = board[H - 1];
+    [area] = lastRow;
+    for (let row = H - 2; row >= 0; row -= 1) {
+      const exposedArea = board[row][0] - board[row + 1][0];
+      if (exposedArea > 0) {
+        area += exposedArea;
+      }
+    }
+    totalArea += area;
+    return totalArea;
   }
 
   for (let row = 0; row < H; row += 1) {
@@ -91,4 +133,16 @@ console.log(surfaceArea([
   [99],
   [77],
 ]));
-// 1482
+
+console.log(surfaceArea([
+  [51,
+    32,
+    28,
+    49,
+    28,
+    21,
+    98,
+    56,
+    99,
+    77],
+]));
