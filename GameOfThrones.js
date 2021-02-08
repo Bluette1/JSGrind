@@ -30,7 +30,7 @@ const checkPalindromeAnagram = (s) => {
 
 /**
  * https://www.hackerrank.com/challenges/game-of-thrones/problem
- * @param {string} s 
+ * @param {string} s
  */
 
 const gameOfThrones = (s) => {
