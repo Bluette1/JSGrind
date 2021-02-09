@@ -1,3 +1,8 @@
+/**
+ * https://www.hackerrank.com/challenges/palindrome-index/problem
+ *
+ * @param {String} str
+ */
 const palindromeIndex = (str) => {
   const { length } = str;
   const reversedStr = str.split('').reverse().join('');
