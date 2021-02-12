@@ -1,8 +1,8 @@
 const max = (max, num) => Math.max(max, num);
 /**
  * The Sliding Window Maximum Challenge - Brute force version
- * @param {Number} k 
- * @param {Array} array 
+ * @param {Number} k
+ * @param {Array} array
  */
 const slidingMaximum = (k, array) => {
   const resMax = [];
