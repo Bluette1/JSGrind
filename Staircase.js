@@ -9,6 +9,11 @@ const joinChars = (max, char) => {
 
 const concatLine = (spaces, hashes) => joinChars(spaces, ' ') + joinChars(hashes, '#');
 
+/**
+ * https://www.hackerrank.com/challenges/staircase/problem
+ *
+ * @param {Number} num
+ */
 const staircase = (num) => {
   let n = 1;
   const max = num;
