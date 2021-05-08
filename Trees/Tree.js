@@ -93,15 +93,13 @@ class Tree {
     while (root.children.length > 0) {
       const { children } = root;
       [root] = children;
-      children.forEach(child => {
-        child.sum = prevSum;
-      });
-
-      stack.unshift(...children.slice(1));
+      for (let i = 1; i < children.length; i += 1) {
+        children[i].sum = prevSum;
+        stack.unshift(children[i]);
+      }
 
       sum += root.value;
     }
-    console.log('Sum: ', sum);
     if (stack.length > 0) {
       const root = stack.shift();
       return Math.min(sum, this.minimumPath(root, stack));
@@ -115,17 +113,17 @@ tr.add(3, tr.root, [2, 0]);
 tr.add(6, tr.root, [1, 5]);
 tr.add(1, tr.root.children[1].children[0], [1]);
 tr.add(10, tr.root.children[1].children[1]);
-// console.log('BreadthFirst:');
-// console.log(tr.breadthFirst(tr.root));
+console.log('BreadthFirst:');
+console.log(tr.breadthFirst(tr.root));
 
-// console.log('DepthFirst:');
-// console.log(tr.depthFirst(tr.root));
+console.log('DepthFirst:');
+console.log(tr.depthFirst(tr.root));
 
-// console.log('Preorder:');
-// console.log(tr.printPreOrder(tr.root, ''));
+console.log('Preorder:');
+console.log(tr.printPreOrder(tr.root, ''));
 
-// console.log('Postorder:');
-// console.log(tr.printPostOrder(tr.root));
+console.log('Postorder:');
+console.log(tr.printPostOrder(tr.root));
 
 console.log('Minimum:');
 console.log(tr.minimumPath(tr.root));
