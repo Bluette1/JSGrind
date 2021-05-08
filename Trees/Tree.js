@@ -85,20 +85,23 @@ class Tree {
     if (root === null) {
       return 0;
     }
-
-    let sum = 0;
-    let current = root;
-    while (current != null) {
-      sum += current.value;
-      current = current.parent;
+    let sum = root.value;
+    if (root.sum) {
+      sum += root.sum;
     }
+    const prevSum = sum;
     while (root.children.length > 0) {
       const { children } = root;
       [root] = children;
+      children.forEach(child => {
+        child.sum = prevSum;
+      });
 
       stack.unshift(...children.slice(1));
+
       sum += root.value;
     }
+    console.log('Sum: ', sum);
     if (stack.length > 0) {
       const root = stack.shift();
       return Math.min(sum, this.minimumPath(root, stack));
