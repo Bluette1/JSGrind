@@ -80,6 +80,31 @@ class Tree {
     }
     return str.trim();
   }
+
+  minimumPath(root, stack = []) {
+    if (root === null) {
+      return 0;
+    }
+
+    let sum = 0;
+    let current = root;
+    while (current != null) {
+      sum += current.value;
+      current = current.parent;
+    }
+    while (root.children.length > 0) {
+      const { children } = root;
+      [root] = children;
+
+      stack.unshift(...children.slice(1));
+      sum += root.value;
+    }
+    if (stack.length > 0) {
+      const root = stack.shift();
+      return Math.min(sum, this.minimumPath(root, stack));
+    }
+    return sum;
+  }
 }
 const tr = new Tree(0);
 tr.add(5, tr.root, [4]);
@@ -87,14 +112,17 @@ tr.add(3, tr.root, [2, 0]);
 tr.add(6, tr.root, [1, 5]);
 tr.add(1, tr.root.children[1].children[0], [1]);
 tr.add(10, tr.root.children[1].children[1]);
-console.log('BreadthFirst:');
-console.log(tr.breadthFirst(tr.root));
+// console.log('BreadthFirst:');
+// console.log(tr.breadthFirst(tr.root));
 
-console.log('DepthFirst:');
-console.log(tr.depthFirst(tr.root));
+// console.log('DepthFirst:');
+// console.log(tr.depthFirst(tr.root));
 
-console.log('Preorder:');
-console.log(tr.printPreOrder(tr.root, ''));
+// console.log('Preorder:');
+// console.log(tr.printPreOrder(tr.root, ''));
 
-console.log('Postorder:');
-console.log(tr.printPostOrder(tr.root));
+// console.log('Postorder:');
+// console.log(tr.printPostOrder(tr.root));
+
+console.log('Minimum:');
+console.log(tr.minimumPath(tr.root));
