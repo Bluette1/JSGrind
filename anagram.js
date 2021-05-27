@@ -1,5 +1,5 @@
 const countChars = (str, value) => {
-  let regExp = new RegExp(value, 'gi');
+  const regExp = new RegExp(value, 'gi');
   return (str.match(regExp) || []).length;
 };
 
