@@ -80,6 +80,32 @@ class Tree {
     }
     return str.trim();
   }
+
+  minimumPath(root, stack = []) {
+    if (root === null) {
+      return 0;
+    }
+    let sum = root.value;
+    if (root.sum) {
+      sum += root.sum;
+    }
+    const prevSum = sum;
+    while (root.children.length > 0) {
+      const { children } = root;
+      [root] = children;
+      for (let i = 1; i < children.length; i += 1) {
+        children[i].sum = prevSum;
+        stack.unshift(children[i]);
+      }
+
+      sum += root.value;
+    }
+    if (stack.length > 0) {
+      const root = stack.shift();
+      return Math.min(sum, this.minimumPath(root, stack));
+    }
+    return sum;
+  }
 }
 const tr = new Tree(0);
 tr.add(5, tr.root, [4]);
@@ -98,3 +124,6 @@ console.log(tr.printPreOrder(tr.root, ''));
 
 console.log('Postorder:');
 console.log(tr.printPostOrder(tr.root));
+
+console.log('Minimum:');
+console.log(tr.minimumPath(tr.root));

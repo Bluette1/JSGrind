@@ -5,8 +5,7 @@
   "main": "index.js",
   "author": "Marylene",
   "scripts": {
-    "eslint-f": "npx eslint . --fix",
-    "stylelint-f": "npx stylelint **/*.{css,scss} --fix"
+    "eslint-f": "npx eslint . --fix"
   },
   "license": "MIT",
   "dependencies": {
