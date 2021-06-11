@@ -1,3 +1,7 @@
+const chalk = require('chalk');
+
+const { log } = console;
+
 /**
  * https://www.hackerrank.com/contests/microverse-coding-challenges/challenges/bon-appetit
  *
@@ -14,9 +18,9 @@ const bonAppetit = (bill, k, b) => {
   }
 
   if (bActual / 2 === b) {
-    console.log('Bon Appetit');
+    log(chalk.bold.blueBright.underline('Bon Appetit'));
   } else {
-    console.log(b - bActual / 2);
+    log(chalk.bgRed.bold.underline(b - bActual / 2));
   }
 };
 

@@ -1,3 +1,7 @@
+const chalk = require('chalk');
+
+const { log } = console;
+
 const cols = (inputMatrix) => {
   const firstCol = [];
   const lastCol = [];
@@ -42,4 +46,4 @@ const input = [
   [9, 10, 11, 12],
   [13, 14, 15, 16],
 ];
-console.log(spiralCopy(input));
+log(chalk.bold.cyan(spiralCopy(input)));

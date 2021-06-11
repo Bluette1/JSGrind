@@ -1,3 +1,6 @@
+const chalk = require('chalk');
+
+const { log } = console;
 /**
  * https://www.hackerrank.com/challenges/find-the-median/problem
  *
@@ -9,4 +12,4 @@ const findMedian = (arr) => {
   return arr[medIdx];
 };
 
-console.log(findMedian([0, 1, 2, 4, 6, 5, 3]));
+log(chalk.hidden(findMedian([0, 1, 2, 4, 6, 5, 3])));
