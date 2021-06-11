@@ -1,4 +1,7 @@
+const chalk = require('chalk');
 const Node = require('./Node');
+
+const { log } = console;
 
 class Tree {
   constructor(value = null) {
@@ -113,17 +116,17 @@ tr.add(3, tr.root, [2, 0]);
 tr.add(6, tr.root, [1, 5]);
 tr.add(1, tr.root.children[1].children[0], [1]);
 tr.add(10, tr.root.children[1].children[1]);
-console.log('BreadthFirst:');
-console.log(tr.breadthFirst(tr.root));
+log(chalk.bgMagentaBright.bold('BreadthFirst:'));
+log(chalk.greenBright(tr.breadthFirst(tr.root)));
 
-console.log('DepthFirst:');
-console.log(tr.depthFirst(tr.root));
+log(chalk.bgMagentaBright.bold('DepthFirst:'));
+log(chalk.greenBright(tr.depthFirst(tr.root)));
 
-console.log('Preorder:');
-console.log(tr.printPreOrder(tr.root, ''));
+log(chalk.bgMagentaBright.bold('Preorder:'));
+log(chalk.greenBright(tr.printPreOrder(tr.root, '')));
 
-console.log('Postorder:');
-console.log(tr.printPostOrder(tr.root));
+log(chalk.bgMagentaBright.bold('Postorder:'));
+log(chalk.greenBright(tr.printPostOrder(tr.root)));
 
-console.log('Minimum:');
-console.log(tr.minimumPath(tr.root));
+log(chalk.bgMagentaBright.bold('Minimum:'));
+log(chalk.greenBright(tr.minimumPath(tr.root)));

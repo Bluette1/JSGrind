@@ -1,3 +1,7 @@
+const chalk = require('chalk');
+
+const { log } = console;
+
 const insertionSort1 = (n, arr) => {
   const temp = arr[n - 1];
   let inserted = false;
@@ -18,7 +22,7 @@ const insertionSort1 = (n, arr) => {
 const insertionSort2 = (n, arr) => {
   for (let i = 1; i < arr.length; i += 1) {
     insertionSort1(i + 1, arr);
-    console.log(arr.join(' '));
+    log(chalk.bold.blueBright.underline(arr.join(' ')));
   }
 };
 

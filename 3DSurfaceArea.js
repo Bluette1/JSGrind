@@ -1,3 +1,7 @@
+const chalk = require('chalk');
+
+const { log } = console;
+
 /**
  * https://www.hackerrank.com/challenges/3d-surface-area/problem
  *
@@ -116,12 +120,12 @@ const surfaceArea = (board) => {
   return totalArea;
 };
 
-console.log(surfaceArea([[1]]));
-console.log(surfaceArea([
+log(chalk.bgMagenta(surfaceArea([[1]])));
+log(chalk.bgMagenta(surfaceArea([
   [1, 3, 4], [2, 2, 3], [1, 2, 4],
-]));
+])));
 
-console.log(surfaceArea([
+log(chalk.redBright(surfaceArea([
   [51],
   [32],
   [28],
@@ -132,9 +136,9 @@ console.log(surfaceArea([
   [56],
   [99],
   [77],
-]));
+])));
 
-console.log(surfaceArea([
+log(chalk.redBright(surfaceArea([
   [51,
     32,
     28,
@@ -145,4 +149,4 @@ console.log(surfaceArea([
     56,
     99,
     77],
-]));
+])));

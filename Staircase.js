@@ -1,3 +1,7 @@
+const chalk = require('chalk');
+
+const { log } = console;
+
 const joinChars = (max, char) => {
   let resStr = '';
   while (max > 0) {
@@ -18,7 +22,7 @@ const staircase = (num) => {
   let n = 1;
   const max = num;
   while (n <= max) {
-    console.log(concatLine(max - n, n));
+    log(chalk.italic.bgCyanBright(concatLine(max - n, n)));
     n += 1;
   }
 };
