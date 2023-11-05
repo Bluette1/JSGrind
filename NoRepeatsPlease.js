@@ -44,20 +44,15 @@ const permutate = (str) => {
     const subStr = queue.shift();
     n += 1;
 
-    let fullSubStr = true;
     for (let posn = 0; posn < length; posn += 1) {
       if (!subStr[posn]) {
         const subStrToAdd = [...subStr];
         const [characterToAdd] = charactersLeft;
         subStrToAdd[posn] = characterToAdd;
         queue.push(subStrToAdd);
-        fullSubStr = false;
       }
     }
 
-    if (fullSubStr) {
-      subStrings.push(subStr);
-    }
     if (n === times) {
       charactersLeft.shift();
       times = queue.length;
@@ -86,4 +81,4 @@ const iterativeNoRepeats = (str) => {
   return res.length;
 };
 
-console.log(iterativeNoRepeats('aab'));
+iterativeNoRepeats('aab');
