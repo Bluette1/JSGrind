@@ -5,6 +5,7 @@
  * Recursive problems can normally be solved iteratively.
  */
 
+// eslint-disable-next-line no-unused-vars
 const permutations = (str) => {
   const { length } = str;
   const charactersLeft = str.split('');
