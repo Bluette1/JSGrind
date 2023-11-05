@@ -6,9 +6,9 @@
  */
 
 const permutations = (str) => {
-  let length = str.length;
-  let charactersLeft = str.split("");
-  let subStrings = [new Array(length).fill("")];
+  const { length } = str;
+  const charactersLeft = str.split('');
+  let subStrings = [new Array(length).fill('')];
 
   while (charactersLeft.length > 0) {
     const newSubStrings = [];
@@ -16,7 +16,8 @@ const permutations = (str) => {
       for (let posn = 0; posn < subStr.length; posn += 1) {
         if (!subStr[posn]) {
           const subStrToAdd = [...subStr];
-          subStrToAdd[posn] = charactersLeft[0];
+          const [characterToAdd] = charactersLeft;
+          subStrToAdd[posn] = characterToAdd;
           newSubStrings.push(subStrToAdd);
         }
       }
@@ -28,8 +29,46 @@ const permutations = (str) => {
   return subStrings;
 };
 
+const permutate = (str) => {
+  const charactersLeft = str.split('');
+  const { length } = str;
+  const queue = [new Array(length).fill('')];
+  const subStrings = [];
+  let n = 0;
+  let times = queue.length;
+
+  while (charactersLeft.length > 0) {
+    // Get item from queue
+    // Create children if possible, if not push to substrings
+    const subStr = queue.shift();
+    n += 1;
+
+    let fullSubStr = true;
+    for (let posn = 0; posn < length; posn += 1) {
+      if (!subStr[posn]) {
+        const subStrToAdd = [...subStr];
+        const [characterToAdd] = charactersLeft;
+        subStrToAdd[posn] = characterToAdd;
+        queue.push(subStrToAdd);
+        fullSubStr = false;
+      }
+    }
+
+    if (fullSubStr) {
+      subStrings.push(subStr);
+    }
+    if (n === times) {
+      charactersLeft.shift();
+      times = queue.length;
+      n = 0;
+    }
+  }
+  return queue;
+};
+
 const iterativeNoRepeats = (str) => {
-  const subStrings = permutations(str);
+  const subStrings = permutate(str);
+  // const subStrings = permutations(str);
   const res = [];
   subStrings.forEach((subStr) => {
     let hasRepeats = false;
@@ -40,10 +79,10 @@ const iterativeNoRepeats = (str) => {
       }
     }
     if (!hasRepeats) {
-        res.push(subStr);
+      res.push(subStr);
     }
   });
   return res.length;
 };
 
-console.log(iterativeNoRepeats("aab"));
+console.log(iterativeNoRepeats('aab'));

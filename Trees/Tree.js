@@ -110,6 +110,8 @@ class Tree {
     return sum;
   }
 }
+module.exports = Tree;
+
 const tr = new Tree(0);
 tr.add(5, tr.root, [4]);
 tr.add(3, tr.root, [2, 0]);
