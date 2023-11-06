@@ -34,7 +34,6 @@ const permutate = (str) => {
   const charactersLeft = str.split('');
   const { length } = str;
   const queue = [new Array(length).fill('')];
-  const subStrings = [];
   let n = 0;
   let times = queue.length;
 
