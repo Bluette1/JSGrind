@@ -6,7 +6,7 @@
  */
 
 // eslint-disable-next-line no-unused-vars
-const permutations = (str) => {
+const permutateA = (str) => {
   const { length } = str;
   const charactersLeft = str.split('');
   let subStrings = [new Array(length).fill('')];
@@ -30,7 +30,7 @@ const permutations = (str) => {
   return subStrings;
 };
 
-const permutate = (str) => {
+const permutateB = (str) => {
   const charactersLeft = str.split('');
   const { length } = str;
   const queue = [new Array(length).fill('')];
@@ -39,7 +39,7 @@ const permutate = (str) => {
 
   while (charactersLeft.length > 0) {
     // Get item from queue
-    // Create children if possible, if not push to substrings
+    // Create children if possible and push them onto the queue
     const subStr = queue.shift();
     n += 1;
 
@@ -61,9 +61,9 @@ const permutate = (str) => {
   return queue;
 };
 
-const iterativeNoRepeats = (str) => {
-  const subStrings = permutate(str);
-  // const subStrings = permutations(str);
+const noRepeatsSoln = (str) => {
+  const subStrings = permutateB(str);
+  // const subStrings = permutateA(str);
   const res = [];
   subStrings.forEach((subStr) => {
     let hasRepeats = false;
@@ -80,4 +80,4 @@ const iterativeNoRepeats = (str) => {
   return res.length;
 };
 
-iterativeNoRepeats('aab');
+noRepeatsSoln('aab');
