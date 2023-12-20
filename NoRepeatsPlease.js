@@ -8,8 +8,8 @@
 // eslint-disable-next-line no-unused-vars
 const permutateA = (str) => {
   const { length } = str;
-  const charactersLeft = str.split("");
-  let subStrings = [new Array(length).fill("")];
+  const charactersLeft = str.split('');
+  let subStrings = [new Array(length).fill('')];
 
   while (charactersLeft.length > 0) {
     const newSubStrings = [];
@@ -30,10 +30,11 @@ const permutateA = (str) => {
   return subStrings;
 };
 
+// eslint-disable-next-line no-unused-vars
 const permutateB = (str) => {
-  const charactersLeft = str.split("");
+  const charactersLeft = str.split('');
   const { length } = str;
-  const queue = [new Array(length).fill("")];
+  const queue = [new Array(length).fill('')];
   let n = 0;
   let times = queue.length;
 
@@ -75,7 +76,7 @@ const permutateC = (currStr, currChar, arrPerm) => {
 };
 
 const noRepeatsSoln = (str) => {
-  const subStrings = permutateC("", str, []);
+  const subStrings = permutateC('', str, []);
   console.log(subStrings);
 
   // const subStrings = permutateB(str);
@@ -96,5 +97,5 @@ const noRepeatsSoln = (str) => {
   return res.length;
 };
 
-console.log(noRepeatsSoln("aab"));
+console.log(noRepeatsSoln('aab'));
 // noRepeatsSoln("aab");
