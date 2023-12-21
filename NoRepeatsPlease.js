@@ -30,6 +30,7 @@ const permutateA = (str) => {
   return subStrings;
 };
 
+// eslint-disable-next-line no-unused-vars
 const permutateB = (str) => {
   const charactersLeft = str.split('');
   const { length } = str;
@@ -61,8 +62,24 @@ const permutateB = (str) => {
   return queue;
 };
 
+const permutateC = (currStr, currChar, arrPerm) => {
+  if (currChar.length === 0) {
+    arrPerm.push(currStr);
+  } else {
+    for (let idx = 0; idx < currChar.length; idx += 1) {
+      const newCurrStr = currStr + currChar.charAt(idx);
+      const newCurrChar = currChar.substring(0, idx) + currChar.substring(idx + 1);
+      permutateC(newCurrStr, newCurrChar, arrPerm);
+    }
+  }
+  return arrPerm;
+};
+
 const noRepeatsSoln = (str) => {
-  const subStrings = permutateB(str);
+  const subStrings = permutateC('', str, []);
+  console.log(subStrings);
+
+  // const subStrings = permutateB(str);
   // const subStrings = permutateA(str);
   const res = [];
   subStrings.forEach((subStr) => {
@@ -80,4 +97,5 @@ const noRepeatsSoln = (str) => {
   return res.length;
 };
 
-noRepeatsSoln('aab');
+console.log(noRepeatsSoln('aab'));
+// noRepeatsSoln("aab");
