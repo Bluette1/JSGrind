@@ -11,8 +11,8 @@ const heapifyUp = (nums, index) => {
 
 const heapifyDown = (nums, n, i) => {
   let largest = i;
-  let left = 2 * i + 1;
-  let right = 2 * i + 2;
+  const left = 2 * i + 1;
+  const right = 2 * i + 2;
 
   if (left < n && nums[left] > nums[largest]) {
     largest = left;
@@ -36,8 +36,6 @@ const buildMaxHeap = (nums) => {
     heapifyDown(nums, nums.length, i);
   }
 };
-
-const nums = [2, 13, 10, 3, 7, 11];
 
 const insert = (nums, value) => {
   nums.push(value);
@@ -64,7 +62,7 @@ const maxScore = (nums, k) => {
 
   let maxValue = 0;
 
-  for (i = 0; i < k; i++) {
+  for (let i = 0; i < k; i += 1) {
     const score = nums[0]; // Retrieve max value
 
     maxValue += score;
